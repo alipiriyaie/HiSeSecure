@@ -18,18 +18,18 @@ std::string decrypt(const std::string& encryptedMessage, int shift) {
 
 int main() {
     std::string message;
-    long shift = 5;
+    auto shift = 5;
+    while (true) {
+        
+        std::cout << "Enter encoded string (or 'exit' to quit): ";
+        std::getline(std::cin, message);
 
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, message);
-
-    // Encrypt
-    std::string encrypted = encrypt(message, shift);
-    std::cout << "Encrypted string: " << encrypted << std::endl;
-
-    // Decrypt
-    std::string decrypted = decrypt(encrypted, shift);
-    std::cout << "Decrypted string: " << decrypted << std::endl;
-
+        if (message == "exit") {
+            break;
+        }
+        // Decrypt
+        std::string decrypted = decrypt(message, shift);
+        std::cout << "Decrypted string: " << decrypted << std::endl;
+    }
     return 0;
 }
